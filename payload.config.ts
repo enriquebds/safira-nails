@@ -1,5 +1,5 @@
 import { buildConfig } from 'payload';
-import { mongooseAdapter } from '@payloadcms/db-mongodb';
+import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { Media } from './src/collections/Media';
 import { Services } from './src/collections/Services';
@@ -9,6 +9,7 @@ import { Orders } from './src/collections/Orders';
 import { SiteSettings } from './src/globals/SiteSettings';
 
 export default buildConfig({
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
   admin: {
     user: 'users',
     meta: {
@@ -18,8 +19,10 @@ export default buildConfig({
   collections: [Media, Services, GalleryImages, Products, Orders],
   globals: [SiteSettings],
   editor: lexicalEditor(),
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI || '',
+    },
   }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
