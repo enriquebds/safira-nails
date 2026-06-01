@@ -1,6 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=DM+Sans:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #9B3FC8;
+  --color-primary-light: #C47DE8;
+  --color-primary-pale: #E8C4F5;
+  --color-primary-dark: #5B1A8A;
+
+  --color-accent: #E879A0;
+  --color-accent-deep: #C2185B;
+
+  --color-brand-offwhite: #FAF5FF;
+  --color-brand-text: #2D0D4E;
+  --color-brand-muted: #6B3F8A;
+  --color-brand-surface: #F3E8FF;
+
+  --color-dark-bg: #12021E;
+  --color-dark-surface: #1E0A30;
+  --color-dark-elevated: #2A1040;
+  --color-dark-text: #F0E0FF;
+  --color-dark-muted: #C4A0E0;
+
+  --font-display: "Playfair Display", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-body: "DM Sans", sans-serif;
+
+  --radius-card: 18px;
+  --radius-card-lg: 24px;
+
+  --shadow-card: 0 8px 30px rgba(91,26,138,0.10);
+  --shadow-card-dark: 0 8px 30px rgba(0,0,0,0.45);
+}
+
 html {
   font-family: 'DM Sans', sans-serif;
   scroll-behavior: smooth;
