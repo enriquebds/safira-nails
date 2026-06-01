@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+html {
+  font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF5FF;
+  color: #2D0D4E;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
+  background-color: #12021E;
+  color: #F0E0FF;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 63, 200, 0.3) transparent;
+}
+
+@keyframes safPop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
