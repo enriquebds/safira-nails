@@ -17,7 +17,7 @@ export function BookingBand() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.55 }}
         className="max-w-[1280px] mx-auto rounded-[28px] px-[clamp(36px,6vw,64px)] py-[clamp(36px,6vw,64px)] text-center text-white relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #9B3FC8, #E879A0)' }}
+        style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))' }}
       >
         <span className="absolute top-[-20px] left-[30px] opacity-25 pointer-events-none">
           <svg width="70" height="70" viewBox="0 0 48 48" fill="none"><path d="M24 4c1.5 11 5 14.5 16 16-11 1.5-14.5 5-16 16-1.5-11-5-14.5-16-16 11-1.5 14.5-5 16-16z" stroke="white" strokeWidth="1.3" strokeLinejoin="round" /></svg>

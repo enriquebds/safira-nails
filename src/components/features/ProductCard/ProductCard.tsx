@@ -34,7 +34,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <motion.article
       whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(155,63,200,0.25)' }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="bg-white dark:bg-dark-elevated rounded-[18px] overflow-hidden border border-primary/10 dark:border-dark-text/10 flex flex-col shadow-card dark:shadow-card-dark"
+      className="bg-white dark:bg-dark-surface rounded-[18px] overflow-hidden border border-primary/10 dark:border-dark-text/10 flex flex-col shadow-card dark:shadow-card-dark"
     >
       <Link href={`/loja/${product.slug}`} className="block relative aspect-square overflow-hidden">
         {imageUrl ? (

@@ -68,7 +68,7 @@ export function Header() {
             ? 'border-b border-primary/10 dark:border-dark-text/10'
             : 'border-b border-transparent'
         }`}
-        style={{ background: 'rgba(255,255,255,0.78)' }}
+        style={{ background: 'var(--header-bg)' }}
       >
         <div className="max-w-[1280px] mx-auto px-6 py-3.5 flex items-center justify-between">
           <Logo />

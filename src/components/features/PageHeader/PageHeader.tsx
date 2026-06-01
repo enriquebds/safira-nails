@@ -6,7 +6,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ over, title, sub }: PageHeaderProps) {
   return (
-    <div className="bg-gradient-to-[160deg] from-primary-pale to-brand-offwhite dark:from-dark-elevated dark:to-dark-bg px-6 py-[clamp(40px,6vw,64px)] text-center" style={{ background: 'linear-gradient(160deg, var(--tw-gradient-from), var(--tw-gradient-to))' }}>
+    <div className="px-6 py-[clamp(40px,6vw,64px)] text-center" style={{ background: 'linear-gradient(160deg, var(--color-primary-pale), var(--color-brand-offwhite))' }}>
       <div className="max-w-[1280px] mx-auto">
         {over && (
           <div className="font-script text-[30px] text-primary leading-none">{over}</div>

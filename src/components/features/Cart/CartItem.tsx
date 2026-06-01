@@ -10,7 +10,7 @@ export function CartItem({ item }: { item: CartItemType }) {
   const removeItem = useCartStore(s => s.removeItem);
 
   return (
-    <div className="flex gap-3.5 bg-white dark:bg-dark-elevated rounded-[14px] p-3 border border-primary/10 dark:border-dark-text/10">
+    <div className="flex gap-3.5 bg-white dark:bg-dark-surface rounded-[14px] p-3 border border-primary/10 dark:border-dark-text/10">
       <div className="w-[72px] h-[72px] rounded-[10px] overflow-hidden flex-shrink-0 bg-primary-pale dark:bg-dark-elevated flex items-center justify-center">
         {item.product.image ? (
           <Image src={item.product.image} alt={item.product.name} width={72} height={72} className="object-cover w-full h-full" />

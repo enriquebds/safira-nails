@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=DM+Sans:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
+/* Enable class-based dark mode (.dark on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #9B3FC8;
   --color-primary-light: #C47DE8;
@@ -30,6 +33,8 @@
 
   --shadow-card: 0 8px 30px rgba(91,26,138,0.10);
   --shadow-card-dark: 0 8px 30px rgba(0,0,0,0.45);
+
+  --header-bg: rgba(255,255,255,0.78);
 }
 
 html {
@@ -38,14 +43,23 @@ html {
 }
 
 body {
-  background-color: #FAF5FF;
-  color: #2D0D4E;
+  background-color: var(--color-brand-offwhite);
+  color: var(--color-brand-text);
   transition: background-color 0.3s, color 0.3s;
 }
 
-.dark body {
-  background-color: #12021E;
-  color: #F0E0FF;
+/* Remap palette tokens for dark mode — mirrors PAL.dark from the design */
+html.dark {
+  --header-bg: rgba(18,2,30,0.78);
+
+  --color-primary: #C47DE8;
+  --color-primary-dark: #9B3FC8;
+  --color-primary-pale: #2A1040;
+
+  --color-brand-offwhite: #12021E;
+  --color-brand-surface: #1E0A30;
+  --color-brand-text: #F0E0FF;
+  --color-brand-muted: #C4A0E0;
 }
 
 * {

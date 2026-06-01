@@ -23,7 +23,7 @@ const sparkles = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-[160deg] from-primary-pale via-primary-light/20 to-brand-offwhite dark:from-dark-elevated dark:to-dark-bg" style={{ background: 'linear-gradient(160deg, #E8C4F5, #FAF5FF)' }}>
+    <section className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, var(--color-primary-pale), var(--color-brand-offwhite))' }}>
       {/* Sparkles */}
       {sparkles.map((sp, i) => (
         <motion.span
@@ -95,12 +95,12 @@ export function Hero() {
             <span className="text-8xl opacity-40">💅</span>
           </div>
           {/* +800 card */}
-          <div className="absolute -bottom-4 -left-4 bg-white dark:bg-dark-elevated rounded-[16px] px-5 py-3.5 shadow-card dark:shadow-card-dark border border-primary/10 dark:border-dark-text/10">
+          <div className="absolute -bottom-4 -left-4 bg-white dark:bg-dark-surface rounded-[16px] px-5 py-3.5 shadow-card dark:shadow-card-dark border border-primary/10 dark:border-dark-text/10">
             <div className="font-display text-[28px] text-primary font-bold">+800</div>
             <div className="text-[12px] text-brand-muted dark:text-dark-muted">clientes encantadas</div>
           </div>
           {/* 5.0 badge */}
-          <div className="absolute -top-3.5 -right-2.5 bg-white dark:bg-dark-elevated rounded-[14px] px-3.5 py-2.5 shadow-card dark:shadow-card-dark border border-primary/10 dark:border-dark-text/10 flex items-center gap-1.5">
+          <div className="absolute -top-3.5 -right-2.5 bg-white dark:bg-dark-surface rounded-[14px] px-3.5 py-2.5 shadow-card dark:shadow-card-dark border border-primary/10 dark:border-dark-text/10 flex items-center gap-1.5">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="#E879A0" stroke="none"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z" /></svg>
             <span className="font-bold text-brand-text dark:text-dark-text text-[14px]">5,0</span>
           </div>

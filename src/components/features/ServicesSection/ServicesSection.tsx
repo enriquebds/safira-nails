@@ -33,12 +33,12 @@ export function ServicesSection({ services }: { services: Service[] }) {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: i * 0.08 }}
             whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(155,63,200,0.18)' }}
-            className="bg-white dark:bg-dark-elevated rounded-[20px] p-6 border border-primary/10 dark:border-dark-text/10 shadow-card dark:shadow-card-dark"
+            className="bg-white dark:bg-dark-surface rounded-[20px] p-6 border border-primary/10 dark:border-dark-text/10 shadow-card dark:shadow-card-dark"
           >
-            <div className="w-12 h-12 rounded-[13px] bg-primary-pale dark:bg-dark-surface flex items-center justify-center mb-4 text-[26px]">
+            <div className="w-12 h-12 rounded-[13px] bg-primary-pale dark:bg-dark-elevated flex items-center justify-center mb-4 text-[26px] text-primary">
               {s.icon ?? (
                 <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
-                  <path d="M24 4c1.5 11 5 14.5 16 16-11 1.5-14.5 5-16 16-1.5-11-5-14.5-16-16 11-1.5 14.5-5 16-16z" stroke="#9B3FC8" strokeWidth="1.3" strokeLinejoin="round" />
+                  <path d="M24 4c1.5 11 5 14.5 16 16-11 1.5-14.5 5-16 16-1.5-11-5-14.5-16-16 11-1.5 14.5-5 16-16z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
                 </svg>
               )}
             </div>
