@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import { getPayload } from '@/utils/payload';
 import { ProductDetails } from '@/components/features/ProductDetails/ProductDetails';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
 
 interface ProductDoc {
   id: string;
@@ -52,7 +53,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload();
-  const { docs } = await payload.find({ collection: 'products', limit: 200 });
-  return docs.filter(p => p.slug).map(p => ({ slug: p.slug as string }));
+  try {
+    const payload = await getPayload();
+    const { docs } = await payload.find({ collection: 'products', limit: 200 });
+    return docs.filter(p => p.slug).map(p => ({ slug: p.slug as string }));
+  } catch {
+    return [];
+  }
 }

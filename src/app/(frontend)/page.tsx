@@ -5,7 +5,7 @@ import { FeaturedProducts } from '@/components/features/FeaturedProducts/Feature
 import { GallerySection } from '@/components/features/GallerySection/GallerySection';
 import { BookingBand } from '@/components/features/BookingBand/BookingBand';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
   const payload = await getPayload();

@@ -2,7 +2,7 @@ import { getPayload } from '@/utils/payload';
 import { PageHeader } from '@/components/features/PageHeader/PageHeader';
 import { LojaClient } from './LojaClient';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export default async function LojaPage() {
   const payload = await getPayload();
