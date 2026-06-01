@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { WHATSAPP_PRETTY, INSTAGRAM_HANDLE, ADDRESS, PAYMENT_METHODS } from '@/utils/constants';
 import { buildGenericBookingMessage } from '@/utils/whatsapp';
 
@@ -12,6 +15,17 @@ const NAV = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (!href.startsWith('/#')) return;
+    const id = href.slice(2);
+    if (pathname === '/') {
+      e.preventDefault();
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   return (
     <footer className="bg-gradient-to-br from-primary-dark to-primary text-white px-6 pt-16 pb-8">
       <div className="max-w-[1280px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10">
@@ -39,7 +53,7 @@ export function Footer() {
         <div>
           <h4 className="font-display text-[18px] mb-4">Navegação</h4>
           {NAV.map(n => (
-            <Link key={n.href} href={n.href} className="block text-[14px] opacity-85 mb-2.5 hover:opacity-100 transition-opacity">
+            <Link key={n.href} href={n.href} onClick={e => handleNavClick(e, n.href)} className="block text-[14px] opacity-85 mb-2.5 hover:opacity-100 transition-opacity">
               {n.label}
             </Link>
           ))}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollHeader } from '@/hooks/useScrollHeader';
 import { useCartStore } from '@/store/cartStore';
@@ -37,11 +38,27 @@ function Logo({ light }: { light?: boolean }) {
   );
 }
 
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
 export function Header() {
   const scrolled = useScrollHeader();
   const totalItems = useCartStore(s => s.totalItems);
   const openCart = useCartStore(s => s.openCart);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string, closeMobile?: boolean) {
+    if (closeMobile) setMenuOpen(false);
+    if (!href.startsWith('/#')) return;
+    const id = href.slice(2);
+    if (pathname === '/') {
+      e.preventDefault();
+      scrollToId(id);
+    }
+  }
 
   return (
     <>
@@ -62,6 +79,7 @@ export function Header() {
               <Link
                 key={n.href}
                 href={n.href}
+                onClick={e => handleNavClick(e, n.href)}
                 className="text-[15px] text-brand-muted dark:text-dark-muted font-medium hover:text-primary dark:hover:text-primary transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-0 after:bg-current after:transition-[width] hover:after:w-full"
               >
                 {n.label}
@@ -135,7 +153,7 @@ export function Header() {
                 <Link
                   key={n.href}
                   href={n.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={e => handleNavClick(e, n.href, true)}
                   className="font-display text-[22px] text-brand-text dark:text-dark-text py-3 border-b border-primary/10 dark:border-dark-text/10"
                 >
                   {n.label}
