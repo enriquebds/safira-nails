@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: 'Safira Nails',
     description: 'Estúdio de Nail Design em Taboão da Serra, SP',
   },
+};
+
+export const viewport: Viewport = {
   themeColor: '#9B3FC8',
 };
 
