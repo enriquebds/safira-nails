@@ -27,6 +27,7 @@ export const useCartStore = create<CartStore>()(
       addItem: (product) => {
         const existing = get().items.find(i => i.product.id === product.id);
         if (existing) {
+          if (existing.quantity >= product.stock) return;
           set(state => ({
             items: state.items.map(i =>
               i.product.id === product.id ? { ...i, quantity: i.quantity + 1 } : i,
@@ -46,9 +47,11 @@ export const useCartStore = create<CartStore>()(
           get().removeItem(productId);
           return;
         }
+        const item = get().items.find(i => i.product.id === productId);
+        const capped = Math.min(quantity, item?.product.stock ?? quantity);
         set(state => ({
           items: state.items.map(i =>
-            i.product.id === productId ? { ...i, quantity } : i,
+            i.product.id === productId ? { ...i, quantity: capped } : i,
           ),
         }));
       },

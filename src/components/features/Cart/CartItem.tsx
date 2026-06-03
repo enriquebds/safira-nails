@@ -36,7 +36,8 @@ export function CartItem({ item }: { item: CartItemType }) {
             </span>
             <button
               onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-              className="w-[26px] h-[26px] rounded-full border-none bg-primary text-white cursor-pointer flex items-center justify-center hover:bg-primary-dark transition-colors"
+              disabled={item.quantity >= item.product.stock}
+              className="w-[26px] h-[26px] rounded-full border-none bg-primary disabled:bg-primary/30 text-white cursor-pointer disabled:cursor-not-allowed flex items-center justify-center hover:bg-primary-dark transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg>
             </button>
