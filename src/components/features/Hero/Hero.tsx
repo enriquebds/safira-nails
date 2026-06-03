@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { buildGenericBookingMessage } from '@/utils/whatsapp';
+import { useSiteSettings } from '@/context/SiteSettingsContext';
 
 const container = {
   hidden: { opacity: 0 },
@@ -22,6 +24,8 @@ const sparkles = [
 ];
 
 export function Hero() {
+  const { heroImageUrl } = useSiteSettings();
+
   return (
     <section className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, var(--color-primary-pale), var(--color-brand-offwhite))' }}>
       {/* Sparkles */}
@@ -91,12 +95,23 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="rounded-[28px] overflow-hidden shadow-card dark:shadow-card-dark bg-gradient-to-br from-primary-pale to-primary-light/50 h-[440px] flex items-center justify-center">
-            <span className="text-8xl opacity-40">💅</span>
+          <div className="relative rounded-[28px] overflow-hidden shadow-card dark:shadow-card-dark bg-linear-to-br from-primary-pale to-primary-light/50 h-110 flex items-center justify-center">
+            {heroImageUrl ? (
+              <Image
+                src={heroImageUrl}
+                alt="Safira Nails"
+                fill
+                className="object-cover"
+                sizes="(max-width: 820px) 0px, 45vw"
+                priority
+              />
+            ) : (
+              <span className="text-8xl opacity-40">💅</span>
+            )}
           </div>
           {/* +800 card */}
           <div className="absolute -bottom-4 -left-4 bg-white dark:bg-dark-surface rounded-[16px] px-5 py-3.5 shadow-card dark:shadow-card-dark border border-primary/10 dark:border-dark-text/10">
-            <div className="font-display text-[28px] text-primary font-bold">+800</div>
+            <div className="font-display text-[28px] text-primary font-bold">+100</div>
             <div className="text-[12px] text-brand-muted dark:text-dark-muted">clientes encantadas</div>
           </div>
           {/* 5.0 badge */}

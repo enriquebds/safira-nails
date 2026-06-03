@@ -6,6 +6,7 @@ export interface SiteSettingsData {
   instagramHandle: string;
   address: string;
   paymentMethods: string[];
+  heroImageUrl: string | null;
 }
 
 function formatWhatsapp(number: string): string {
@@ -23,22 +24,26 @@ const FALLBACK: SiteSettingsData = {
   instagramHandle: 'safira.nls',
   address: 'Taboão da Serra, SP',
   paymentMethods: ['Pix', 'Cartão de Crédito', 'Débito', 'Dinheiro'],
+  heroImageUrl: null,
 };
 
 export async function getSiteSettings(): Promise<SiteSettingsData> {
   try {
     const payload = await getPayload();
-    const s = await payload.findGlobal({ slug: 'site-settings' });
+    const s = await payload.findGlobal({ slug: 'site-settings', depth: 1 });
     const number = (s.whatsappNumber as string) || FALLBACK.whatsappNumber;
     const methods = ((s.paymentMethods as { method: string }[] | null) ?? [])
       .map(p => p.method)
       .filter(Boolean);
+    const heroImg = s.heroImage as { url?: string } | string | null | undefined;
+    const heroImageUrl = typeof heroImg === 'object' && heroImg?.url ? heroImg.url : null;
     return {
       whatsappNumber: number,
       whatsappPretty: formatWhatsapp(number),
       instagramHandle: (s.instagramHandle as string) || FALLBACK.instagramHandle,
       address: (s.address as string) || FALLBACK.address,
       paymentMethods: methods.length ? methods : FALLBACK.paymentMethods,
+      heroImageUrl,
     };
   } catch {
     return FALLBACK;

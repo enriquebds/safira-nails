@@ -9,6 +9,7 @@ const DEFAULT: SiteSettingsData = {
   instagramHandle: 'safira.nls',
   address: 'Taboão da Serra, SP',
   paymentMethods: ['Pix', 'Cartão de Crédito', 'Débito', 'Dinheiro'],
+  heroImageUrl: null,
 };
 
 const SiteSettingsContext = createContext<SiteSettingsData>(DEFAULT);
