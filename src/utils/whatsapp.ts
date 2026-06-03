@@ -42,7 +42,7 @@ export function buildCartWhatsAppMessage(
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
-export function buildGenericBookingMessage(): string {
+export function buildGenericBookingMessage(number = WHATSAPP_NUMBER): string {
   const text = `Olá! Gostaria de agendar um horário na Safira Nails 💅`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }
