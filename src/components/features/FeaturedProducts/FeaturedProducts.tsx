@@ -26,7 +26,7 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
   return (
     <section className="bg-brand-surface dark:bg-dark-surface py-[clamp(56px,8vw,88px)] px-6">
       <div className="max-w-[1280px] mx-auto">
-        <SectionTitle over="da" title="Nossa Loja" />
+        <SectionTitle title="Nossa Loja" />
         <div ref={ref} className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-5">
           {products.map((p, i) => (
             <motion.div

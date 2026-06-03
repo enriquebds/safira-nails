@@ -42,7 +42,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
 
   return (
     <section id="galeria" className="scroll-mt-20 py-[clamp(56px,8vw,88px)] px-6 max-w-[1280px] mx-auto">
-      <SectionTitle over="nossa" title="Galeria" />
+      <SectionTitle title="Galeria" />
 
       {/* Filters */}
       <div className="flex gap-2.5 flex-wrap justify-center mb-7">

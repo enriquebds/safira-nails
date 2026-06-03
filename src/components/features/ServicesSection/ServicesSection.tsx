@@ -24,7 +24,7 @@ export function ServicesSection({ services }: { services: Service[] }) {
 
   return (
     <section id="servicos" className="scroll-mt-20 py-[clamp(56px,8vw,88px)] px-6 max-w-[1280px] mx-auto">
-      <SectionTitle over="nossos" title="Serviços" />
+      <SectionTitle title="Serviços" />
       <div ref={ref} className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
         {services.map((s, i) => (
           <motion.div
