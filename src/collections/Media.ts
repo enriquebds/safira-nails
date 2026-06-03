@@ -7,7 +7,6 @@ export const Media: CollectionConfig = {
   },
   admin: { group: 'Mídia' },
   upload: {
-    staticDir: 'public/media',
     imageSizes: [
       { name: 'thumbnail', width: 400, height: 400, position: 'centre' },
       { name: 'card', width: 800, height: 800, position: 'centre' },

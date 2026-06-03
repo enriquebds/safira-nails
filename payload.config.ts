@@ -1,6 +1,7 @@
 import { buildConfig } from 'payload';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import { s3Storage } from '@payloadcms/storage-s3';
 import { Users } from './src/collections/Users';
 import { Media } from './src/collections/Media';
 import { Services } from './src/collections/Services';
@@ -25,6 +26,25 @@ export default buildConfig({
   collections: [Users, Media, Services, GalleryImages, Products, Orders],
   globals: [SiteSettings],
   editor: lexicalEditor(),
+  plugins: [
+    s3Storage({
+      collections: {
+        media: {
+          generateFileURL: ({ filename }) =>
+            `${process.env.R2_PUBLIC_URL}/${filename}`,
+        },
+      },
+      bucket: process.env.R2_BUCKET || '',
+      config: {
+        credentials: {
+          accessKeyId: process.env.R2_ACCESS_KEY_ID || '',
+          secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || '',
+        },
+        region: 'auto',
+        endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+      },
+    }),
+  ],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
