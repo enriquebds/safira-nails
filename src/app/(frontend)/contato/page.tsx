@@ -1,30 +1,6 @@
 import { PageHeader } from '@/components/features/PageHeader/PageHeader';
-import { WHATSAPP_PRETTY, INSTAGRAM_HANDLE, ADDRESS, CEP } from '@/utils/constants';
+import { getSiteSettings } from '@/lib/getSiteSettings';
 import { buildGenericBookingMessage } from '@/utils/whatsapp';
-
-const cards = [
-  {
-    icon: 'pin',
-    title: 'Endereço',
-    value: ADDRESS,
-    sub: `CEP ${CEP}`,
-    href: `https://maps.google.com/?q=${encodeURIComponent(ADDRESS)}`,
-  },
-  {
-    icon: 'whatsapp',
-    title: 'WhatsApp',
-    value: WHATSAPP_PRETTY,
-    sub: 'Toque para conversar',
-    href: buildGenericBookingMessage(),
-  },
-  {
-    icon: 'instagram',
-    title: 'Instagram',
-    value: `@${INSTAGRAM_HANDLE}`,
-    sub: 'Veja nossos trabalhos',
-    href: `https://instagram.com/${INSTAGRAM_HANDLE}`,
-  },
-];
 
 function ContactIcon({ name }: { name: string }) {
   if (name === 'pin') return <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B3FC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>;
@@ -32,7 +8,33 @@ function ContactIcon({ name }: { name: string }) {
   return <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B3FC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.3" cy="6.7" r="0.4" fill="#9B3FC8" /></svg>;
 }
 
-export default function ContatoPage() {
+export default async function ContatoPage() {
+  const { whatsappNumber, whatsappPretty, instagramHandle, address } = await getSiteSettings();
+
+  const cards = [
+    {
+      icon: 'pin',
+      title: 'Endereço',
+      value: address,
+      sub: 'Jaguaré, SP',
+      href: `https://maps.google.com/?q=${encodeURIComponent(address)}`,
+    },
+    {
+      icon: 'whatsapp',
+      title: 'WhatsApp',
+      value: whatsappPretty,
+      sub: 'Toque para conversar',
+      href: buildGenericBookingMessage(whatsappNumber),
+    },
+    {
+      icon: 'instagram',
+      title: 'Instagram',
+      value: `@${instagramHandle}`,
+      sub: 'Veja nossos trabalhos',
+      href: `https://instagram.com/${instagramHandle}`,
+    },
+  ];
+
   return (
     <>
       <PageHeader
@@ -66,7 +68,7 @@ export default function ContatoPage() {
         <div className="rounded-[24px] overflow-hidden border border-primary/10 dark:border-dark-text/10 shadow-card h-[420px]">
           <iframe
             title="Mapa Safira Nails"
-            src={`https://maps.google.com/maps?q=${encodeURIComponent('Taboão da Serra, SP')}&z=14&output=embed`}
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(address)}&z=14&output=embed`}
             style={{ border: 0, width: '100%', height: '100%', filter: 'saturate(1.05)' }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
