@@ -42,6 +42,7 @@ function getUrl(img: MediaImage | string | undefined | null): string {
 
 export function ProductDetails({ product, related }: { product: Product; related: Product[] }) {
   const addItem = useCartStore(s => s.addItem);
+  const cartQty = useCartStore(s => s.items.find(i => i.product.id === product.id)?.quantity ?? 0);
   const [qty, setQty] = useState(1);
 
   const mainUrl = getUrl(product.image);
@@ -52,14 +53,18 @@ export function ProductDetails({ product, related }: { product: Product; related
   const soldOut = product.stock === 0;
   const catLabel = product.category ? (CAT_LABELS[product.category] ?? product.category) : '';
 
+  const available = product.stock - cartQty;
+
   function handleAdd() {
-    for (let i = 0; i < qty; i++) {
+    const canAdd = Math.min(qty, available);
+    for (let i = 0; i < canAdd; i++) {
       addItem({
         id: product.id,
         name: product.name,
         price: product.price,
         image: mainUrl,
         slug: product.slug ?? '',
+        stock: product.stock,
       });
     }
   }
@@ -131,7 +136,7 @@ export function ProductDetails({ product, related }: { product: Product; related
                   </button>
                   <span className="min-w-[30px] text-center font-bold text-brand-text dark:text-dark-text text-[16px]">{qty}</span>
                   <button
-                    onClick={() => setQty(q => Math.min(product.stock, q + 1))}
+                    onClick={() => setQty(q => Math.min(available, q + 1))}
                     className="w-[34px] h-[34px] rounded-full bg-primary text-white border-none cursor-pointer flex items-center justify-center hover:bg-primary-dark transition-colors"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg>
@@ -146,11 +151,11 @@ export function ProductDetails({ product, related }: { product: Product; related
             <div className="flex gap-3 flex-wrap">
               <button
                 onClick={handleAdd}
-                disabled={soldOut}
+                disabled={soldOut || available <= 0}
                 className="inline-flex items-center gap-2 bg-primary disabled:opacity-40 hover:bg-primary-dark text-white font-semibold rounded-full py-[15px] px-[30px] text-[16px] transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="20" r="1.3" /><circle cx="18" cy="20" r="1.3" /><path d="M2 3h3l2.2 12.3a1.5 1.5 0 0 0 1.5 1.2h8.5a1.5 1.5 0 0 0 1.5-1.2L21 7H6" /></svg>
-                {soldOut ? 'Indisponível' : 'Adicionar ao carrinho'}
+                {soldOut || available <= 0 ? 'Indisponível' : 'Adicionar ao carrinho'}
               </button>
               <a
                 href={buildGenericBookingMessage()}
