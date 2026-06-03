@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { WHATSAPP_PRETTY, INSTAGRAM_HANDLE, ADDRESS, PAYMENT_METHODS } from '@/utils/constants';
+import { useSiteSettings } from '@/context/SiteSettingsContext';
 import { buildGenericBookingMessage } from '@/utils/whatsapp';
 
 const NAV = [
@@ -16,6 +16,7 @@ const NAV = [
 
 export function Footer() {
   const pathname = usePathname();
+  const { whatsappNumber, whatsappPretty, instagramHandle, address, paymentMethods } = useSiteSettings();
 
   function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
     if (!href.startsWith('/#')) return;
@@ -40,10 +41,10 @@ export function Footer() {
           </Link>
           <p className="font-script text-[28px] opacity-95 my-4">Valiosa como uma safira</p>
           <div className="flex gap-3">
-            <a href={buildGenericBookingMessage()} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
+            <a href={buildGenericBookingMessage(whatsappNumber)} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3L3 21z M9 9.5c0 4 3 6.5 5.5 6.5.8 0 1.5-.7 1.5-1.3 0-.4-1.8-1.4-2.2-1.2-.5.3-.8 1-1.3.7-1.2-.6-2.1-1.6-2.4-2.7-.1-.5.5-.8.8-1.3.2-.4-.8-2.2-1.2-2.2-.6 0-1.3.7-1.3 1.5z" /></svg>
             </a>
-            <a href={`https://instagram.com/${INSTAGRAM_HANDLE}`} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
+            <a href={`https://instagram.com/${instagramHandle}`} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.3" cy="6.7" r="0.4" fill="#fff" /></svg>
             </a>
           </div>
@@ -64,15 +65,15 @@ export function Footer() {
           <h4 className="font-display text-[18px] mb-4">Contato</h4>
           <div className="flex items-center gap-2 text-[14px] opacity-85 mb-2.5">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
-            {ADDRESS}
+            {address}
           </div>
           <div className="flex items-center gap-2 text-[14px] opacity-85 mb-2.5">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3L3 21z" /></svg>
-            {WHATSAPP_PRETTY}
+            {whatsappPretty}
           </div>
           <div className="flex items-center gap-2 text-[14px] opacity-85">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.3" cy="6.7" r="0.4" fill="#fff" /></svg>
-            @{INSTAGRAM_HANDLE}
+            @{instagramHandle}
           </div>
         </div>
 
@@ -80,7 +81,7 @@ export function Footer() {
         <div>
           <h4 className="font-display text-[18px] mb-4">Pagamento</h4>
           <div className="flex gap-2 flex-wrap">
-            {PAYMENT_METHODS.map(p => (
+            {paymentMethods.map((p: string) => (
               <span key={p} className="text-[12px] px-[11px] py-[5px] rounded-[7px] bg-white/20">{p}</span>
             ))}
           </div>

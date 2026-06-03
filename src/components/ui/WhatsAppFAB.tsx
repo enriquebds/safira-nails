@@ -1,12 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useSiteSettings } from '@/context/SiteSettingsContext';
 import { buildGenericBookingMessage } from '@/utils/whatsapp';
 
 export function WhatsAppFAB() {
+  const { whatsappNumber } = useSiteSettings();
   return (
     <motion.a
-      href={buildGenericBookingMessage()}
+      href={buildGenericBookingMessage(whatsappNumber)}
       target="_blank"
       rel="noopener noreferrer"
       title="Fale conosco no WhatsApp"
