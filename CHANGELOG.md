@@ -54,4 +54,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2026-06-03
+
+### Added
+
+- **Hero image from CMS** — `heroImage` field in `SiteSettings` global now renders in the Hero section; falls back to the emoji placeholder when unset.
+- **Dynamic site settings context** — `heroImageUrl` exposed via `SiteSettingsContext` and `getSiteSettings` with `depth: 1` to populate the relation.
+- **Cloudflare R2 media storage** — all Payload media uploads now go to a Cloudflare R2 bucket via `@payloadcms/storage-s3`; local `public/media` directory removed. Files are served directly from the R2 public CDN URL.
+- **App icon** — added `src/app/icon.svg` for browser tab favicon.
+
+### Changed
+
+- **Header logo** — replaced the gradient `<div>` placeholder with an inline SVG that renders a serif "S" with a gradient fill, matching the brand palette.
+- **Gallery empty state** — placeholder grid count increased from 8 to 10 to better fill the layout.
+- **next.config.ts** — added `**.r2.dev` to `images.remotePatterns` so `next/image` can serve R2-hosted assets.
+
 <!-- next release goes above this line -->
