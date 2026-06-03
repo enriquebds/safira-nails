@@ -5,12 +5,18 @@ import { BookingForm } from '@/components/features/BookingForm/BookingForm';
 export const dynamic = 'force-dynamic';
 
 export default async function AgendamentoPage() {
-  const payload = await getPayload();
-  const { docs: services } = await payload.find({
-    collection: 'services',
-    where: { active: { equals: true } },
-    sort: 'order',
-  });
+  let services: never[] = [];
+  try {
+    const payload = await getPayload();
+    const { docs } = await payload.find({
+      collection: 'services',
+      where: { active: { equals: true } },
+      sort: 'order',
+    });
+    services = docs as never[];
+  } catch (err) {
+    console.error('[AgendamentoPage] failed to load services:', err);
+  }
 
   return (
     <>
@@ -19,7 +25,7 @@ export default async function AgendamentoPage() {
         title="Agendamento"
         sub="Preencha os dados abaixo e enviaremos seu pedido de horário direto pelo WhatsApp."
       />
-      <BookingForm services={services as never} />
+      <BookingForm services={services} />
     </>
   );
 }

@@ -25,7 +25,19 @@ export default async function LojaPage({
   searchParams: Promise<{ product_id?: string }>;
 }) {
   const { product_id } = await searchParams;
-  const payload = await getPayload();
+
+  let payload: Awaited<ReturnType<typeof getPayload>>;
+  try {
+    payload = await getPayload();
+  } catch (err) {
+    console.error('[LojaPage] failed to connect to database:', err);
+    return (
+      <>
+        <PageHeader over="nossa" title="Loja" sub="Produtos selecionados para suas unhas ficarem perfeitas em casa também." />
+        <LojaClient products={[]} />
+      </>
+    );
+  }
 
   if (product_id) {
     const { docs } = await payload.find({
