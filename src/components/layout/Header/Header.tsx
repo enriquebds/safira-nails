@@ -45,7 +45,7 @@ function scrollToId(id: string) {
 
 export function Header() {
   const scrolled = useScrollHeader();
-  const totalItems = useCartStore(s => s.totalItems);
+  const totalItems = useCartStore(s => s.totalItems());
   const openCart = useCartStore(s => s.openCart);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -80,7 +80,7 @@ export function Header() {
                 key={n.href}
                 href={n.href}
                 onClick={e => handleNavClick(e, n.href)}
-                className="text-[15px] text-brand-muted dark:text-dark-muted font-medium hover:text-primary dark:hover:text-primary transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-0 after:bg-current after:transition-[width] hover:after:w-full"
+                className="text-[15px] text-brand-muted dark:text-dark-muted font-medium hover:text-primary dark:hover:text-primary transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-6 after:h-0.5 after:w-0 after:bg-current after:transition-[width] hover:after:w-full"
               >
                 {n.label}
               </Link>
@@ -94,15 +94,15 @@ export function Header() {
             <button
               onClick={openCart}
               title="Carrinho"
-              className="relative w-10 h-10 rounded-full border border-primary/20 dark:border-dark-text/20 bg-transparent text-brand-text dark:text-dark-text flex items-center justify-center hover:bg-primary/10 transition-colors"
+              className="cursor-pointer relative w-10 h-10 rounded-full border border-primary/20 dark:border-dark-text/20 bg-transparent text-brand-text dark:text-dark-text flex items-center justify-center hover:bg-primary/10 transition-colors"
             >
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="9" cy="20" r="1.3" /><circle cx="18" cy="20" r="1.3" />
                 <path d="M2 3h3l2.2 12.3a1.5 1.5 0 0 0 1.5 1.2h8.5a1.5 1.5 0 0 0 1.5-1.2L21 7H6" />
               </svg>
-              {totalItems() > 0 && (
+              {totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 min-w-[19px] h-[19px] px-1 rounded-full bg-accent text-white text-[11px] font-bold flex items-center justify-center animate-[safPop_.25s_ease]">
-                  {totalItems()}
+                  {totalItems}
                 </span>
               )}
             </button>
