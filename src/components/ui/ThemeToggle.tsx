@@ -9,7 +9,7 @@ export function ThemeToggle() {
     <button
       onClick={toggleTheme}
       title="Alternar tema"
-      className="w-10 h-10 rounded-full border border-primary/20 dark:border-dark-text/20 bg-transparent text-brand-muted dark:text-dark-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
+      className="cursor-pointer w-10 h-10 rounded-full border border-primary/20 dark:border-dark-text/20 bg-transparent text-brand-muted dark:text-dark-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
     >
       {theme === 'light' ? (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
