@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-06-02
+
+### Fixed
+
+- Wrapped all server-component database calls (`HomePage`, `LojaPage`, `AgendamentoPage`) in `try/catch` so a missing `DATABASE_URL`, `PAYLOAD_SECRET` or network failure no longer causes the generic Next.js production error page. Pages now fall back to empty data and log the real error to the server console.
+
+---
+
 ## [1.0.0] - 2026-06-02
 
 ### Added
