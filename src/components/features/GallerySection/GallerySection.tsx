@@ -105,7 +105,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
       {/* Empty state */}
       {images.length === 0 && (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3.5">
-          {Array.from({ length: 8 }).map((_, i) => (
+          {Array.from({ length: 10 }).map((_, i) => (
             <div key={i} className="h-[230px] rounded-[16px] bg-gradient-to-br from-primary-pale to-primary-light/50 flex items-center justify-center">
               <span className="text-4xl opacity-30">💅</span>
             </div>
