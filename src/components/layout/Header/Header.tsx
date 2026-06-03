@@ -21,11 +21,16 @@ const NAV = [
 function Logo({ light }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <div
-        className={`w-10 h-10 rounded-[11px] flex items-center justify-center text-white font-display font-bold text-[23px] ${light ? 'bg-white/20' : 'bg-gradient-to-br from-primary to-accent'}`}
-      >
-        S
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" className="w-10 h-10">
+        <defs>
+          <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%"   stopColor={light ? '#fff' : '#7B2D9E'} />
+            <stop offset="50%"  stopColor={light ? 'rgba(255,255,255,0.85)' : '#9B3FC8'} />
+            <stop offset="100%" stopColor={light ? 'rgba(255,255,255,0.7)' : '#D94F80'} />
+          </linearGradient>
+        </defs>
+        <text x="50" y="78" textAnchor="middle" fontFamily="Georgia, 'Times New Roman', serif" fontSize="88" fontWeight="bold" fill="url(#logo-g)">S</text>
+      </svg>
       <div className="leading-none">
         <span className={`font-display font-bold text-[21px] ${light ? 'text-white' : 'text-brand-text dark:text-dark-text'}`}>
           Safira
