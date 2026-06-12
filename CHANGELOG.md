@@ -73,6 +73,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.1] - 2026-06-11
+
+### Fixed
+
+- **Contato page** — valores de localização hardcoded substituídos por dados do Payload. O subtítulo do `PageHeader` agora usa o campo `address` do global `SiteSettings` via `getSiteSettings()`, e o sub-label do card de endereço deixou de exibir um bairro fixo.
+
+---
+
 ## [1.2.0] - 2026-06-11
 
 ### Added
