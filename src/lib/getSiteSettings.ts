@@ -22,7 +22,7 @@ const FALLBACK: SiteSettingsData = {
   whatsappNumber: '5511976480983',
   whatsappPretty: '(11) 97648-0983',
   instagramHandle: 'safira.nls',
-  address: 'Taboão da Serra, SP',
+  address: 'Avenida Alexandre Mackenzie, 529 - Jaguaré, São Paulo - SP, 05322-000',
   paymentMethods: ['Pix', 'Cartão de Crédito', 'Débito', 'Dinheiro'],
   heroImageUrl: null,
 };
