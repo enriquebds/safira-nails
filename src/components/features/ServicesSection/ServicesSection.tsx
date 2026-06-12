@@ -43,7 +43,7 @@ export function ServicesSection({ services }: { services: Service[] }) {
                   </svg>
                 )}
               </span>
-              <h3 className="font-display text-[21px] text-brand-text dark:text-dark-text font-bold leading-tight">{s.title}</h3>
+              <h3 className="font-display text-[21px] text-brand-text dark:text-dark-text font-extrabold leading-tight">{s.title}</h3>
             </div>
             <p className="text-[14px] text-brand-muted dark:text-dark-muted leading-[1.55] mb-4">{s.description}</p>
             {s.items && s.items.length > 0 && (

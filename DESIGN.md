@@ -26,7 +26,7 @@ Committed. Purple is the brand anchor, not just an accent. It appears throughout
 Neutrals are always tinted toward the brand hue (chroma 0.005–0.04). No pure black or pure white anywhere.
 
 ## Typography
-Display: **Bodoni Moda** — high-contrast Italian didone serif. Carries the luxury/fashion register without Playfair Display's ubiquity. Use for h1, h2, h3, and the logo wordmark. Italic cuts add elegance in key phrases.
+Display: **Spectral** — screen-optimized literary serif with moderate stroke contrast. Elegant and readable at all weights (400–800), works in dark mode without hairline legibility issues. Use for h1, h2, h3, and the logo wordmark. Italic cuts add warmth in key phrases.
 
 Script: **Great Vibes** — warm, personal. Used sparingly for brand phrases and section openers, not section headers.
 

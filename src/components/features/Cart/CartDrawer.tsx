@@ -45,7 +45,7 @@ export function CartDrawer() {
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-primary/20 dark:border-dark-text/10">
-              <h2 className="font-display text-[21px] text-brand-text dark:text-dark-text font-bold flex items-center gap-2">
+              <h2 className="font-display text-[21px] text-brand-text dark:text-dark-text font-extrabold flex items-center gap-2">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><circle cx="9" cy="20" r="1.3" /><circle cx="18" cy="20" r="1.3" /><path d="M2 3h3l2.2 12.3a1.5 1.5 0 0 0 1.5 1.2h8.5a1.5 1.5 0 0 0 1.5-1.2L21 7H6" /></svg>
                 Seu Carrinho{' '}
                 {totalItems() > 0 && <span className="text-brand-muted dark:text-dark-muted font-normal">({totalItems()})</span>}

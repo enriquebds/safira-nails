@@ -11,7 +11,7 @@ export function PageHeader({ over, title, sub }: PageHeaderProps) {
         {over && (
           <div className="font-script text-[30px] text-primary leading-none">{over}</div>
         )}
-        <h1 className="font-display text-[clamp(32px,5vw,52px)] text-brand-text dark:text-dark-text font-bold mt-1 mb-3 leading-tight">
+        <h1 className="font-display text-[clamp(32px,5vw,52px)] text-brand-text dark:text-dark-text font-extrabold mt-1 mb-3 leading-tight">
           {title}
         </h1>
         {sub && (

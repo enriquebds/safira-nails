@@ -107,7 +107,7 @@ export function ProductDetails({ product, related }: { product: Product; related
             {catLabel && (
               <span className="text-[12px] uppercase tracking-[2px] text-primary font-semibold">{catLabel}</span>
             )}
-            <h1 className="font-display text-[clamp(28px,4vw,40px)] text-brand-text dark:text-dark-text font-bold mt-2 mb-3.5 leading-[1.15]">
+            <h1 className="font-display text-[clamp(28px,4vw,40px)] text-brand-text dark:text-dark-text font-extrabold mt-2 mb-3.5 leading-[1.15]">
               {product.name}
             </h1>
             <div className="flex items-center gap-3.5 mb-5">

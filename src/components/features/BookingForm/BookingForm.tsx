@@ -136,7 +136,7 @@ export function BookingForm({ services }: BookingFormProps) {
         </div>
 
         <div className="bg-white dark:bg-dark-elevated rounded-[24px] p-7 border border-primary/10 dark:border-dark-text/10 shadow-card">
-          <h3 className="font-display text-[20px] text-brand-text dark:text-dark-text font-bold mb-4 flex items-center gap-2">
+          <h3 className="font-display text-[20px] text-brand-text dark:text-dark-text font-extrabold mb-4 flex items-center gap-2">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
             Horário de atendimento
           </h3>

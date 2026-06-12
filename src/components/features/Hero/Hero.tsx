@@ -32,7 +32,7 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-display text-[clamp(36px,5.4vw,64px)] leading-[1.07] text-brand-text dark:text-dark-text font-bold mt-5 tracking-[-0.5px] text-balance"
+            className="font-display text-[clamp(36px,5.4vw,64px)] leading-[1.07] text-brand-text dark:text-dark-text font-extrabold mt-5 tracking-[-0.5px] text-balance"
           >
             Valiosa como uma safira,{' '}
             <span className="italic text-primary-dark">cuidada como uma joia rara</span>

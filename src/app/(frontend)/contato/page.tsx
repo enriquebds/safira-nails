@@ -58,7 +58,7 @@ export default async function ContatoPage() {
                 <ContactIcon name={card.icon} />
               </span>
               <span className="text-[13px] uppercase tracking-[1px] text-brand-muted dark:text-dark-muted">{card.title}</span>
-              <span className="font-display text-[22px] text-brand-text dark:text-dark-text font-bold">{card.value}</span>
+              <span className="font-display text-[22px] text-brand-text dark:text-dark-text font-extrabold">{card.value}</span>
               <span className="text-[14px] text-primary">{card.sub}</span>
             </a>
           ))}

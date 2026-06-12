@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 /* Enable class-based dark mode (.dark on <html>) */
@@ -24,7 +24,7 @@
   --color-dark-text:     oklch(91% 0.06 291);
   --color-dark-muted:    oklch(71% 0.11 292);
 
-  --font-display: "Bodoni Moda", serif;
+  --font-display: "Spectral", serif;
   --font-script: "Great Vibes", cursive;
   --font-body: "Lato", sans-serif;
 
@@ -67,9 +67,8 @@ html.dark {
   scrollbar-color: oklch(49% 0.22 292 / 0.25) transparent;
 }
 
-/* Optical sizing and kerning for the display serif */
+/* Kerning and ligatures for the display serif */
 .font-display {
-  font-optical-sizing: auto;
   font-kerning: normal;
   font-feature-settings: "kern" 1, "liga" 1;
 }

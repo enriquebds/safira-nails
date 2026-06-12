@@ -21,7 +21,7 @@ export function BookingBand() {
         className="max-w-[1280px] mx-auto text-center"
       >
         <div className="font-script text-[34px] opacity-80 mb-1">vamos cuidar de você</div>
-        <h2 className="font-display text-[clamp(26px,4vw,44px)] font-bold mb-4">Pronta para unhas de joia?</h2>
+        <h2 className="font-display text-[clamp(26px,4vw,44px)] font-extrabold mb-4">Pronta para unhas de joia?</h2>
         <p className="text-[17px] opacity-85 max-w-[480px] mx-auto mb-8 leading-[1.6]">
           Agende seu horário em poucos cliques. Atendimento com hora marcada, sem filas.
         </p>
