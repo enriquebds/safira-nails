@@ -17,7 +17,7 @@ export default async function ContatoPage() {
       icon: 'pin',
       title: 'Endereço',
       value: address,
-      sub: 'Jaguaré, SP',
+      sub: 'Ver no Google Maps',
       href: `https://maps.google.com/?q=${encodeURIComponent(address)}`,
     },
     {
@@ -41,7 +41,7 @@ export default async function ContatoPage() {
       <PageHeader
         over="fale com a gente"
         title="Contato"
-        sub="Estamos pertinho de você em Taboão da Serra. Venha tomar um café e renovar suas unhas."
+        sub={`Estamos pertinho de você em ${address}. Venha tomar um café e renovar suas unhas.`}
       />
 
       <section className="max-w-[1280px] mx-auto px-6 py-12">
