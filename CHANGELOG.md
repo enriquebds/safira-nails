@@ -70,3 +70,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **next.config.ts** — added `**.r2.dev` to `images.remotePatterns` so `next/image` can serve R2-hosted assets.
 
 <!-- next release goes above this line -->
+
+---
+
+## [1.2.0] - 2026-06-11
+
+### Added
+
+- **PRODUCT.md** — design context file com register (`brand`), usuários-alvo, propósito do produto, personalidade da marca, anti-referências e 5 princípios estratégicos de design.
+- **DESIGN.md** — arquivo de design system documentando estratégia de cor (Committed), tipografia, regras de elevação, padrões de motion e bans absolutos do projeto.
+
+### Changed
+
+- **Tipografia** — `Playfair Display` substituído por **Bodoni Moda** (didone italiana variável com optical sizing); `DM Sans` substituído por **Lato** (humanist sans). Optical sizing automático (`font-optical-sizing: auto`) e tracking negativo aplicados em `h1`/`h2`. Ambas as fontes removidas estavam na lista de reflex-reject do design system.
+- **Sistema de cores** — todos os valores hexadecimais convertidos para **OKLCH** no `@theme` e no bloco `html.dark`; neutros mantidos com chroma 0.005–0.04 na direção da hue primária (292).
+- **Hero** — fundo gradiente removido (substituído por `bg-brand-surface` sólido); cartões flutuantes de métricas (`+100 clientes` e `5,0 ⭐`) removidos; 5 sparkles decorativos removidos; sinais de confiança convertidos para linha de texto inline abaixo dos CTAs.
+- **BookingBand** — card arredondado com gradiente `linear-gradient(135deg, primary, accent)` removido; seção agora full-bleed com fundo `bg-primary-dark` sólido.
+- **Footer** — gradiente `bg-gradient-to-br from-primary-dark to-primary` substituído por cor sólida `oklch(18% 0.12 290)`.
+- **PageHeader** — fundo gradiente substituído por `bg-brand-surface` sólido; consistente com o Hero.
+- **SectionTitle** — barra decorativa gradiente (`bg-gradient-to-r from-primary to-accent`) substituída por linha fina `1px solid` sutil.
+- **ServicesSection** — container de ícone em quadrado arredondado (`rounded-[13px] bg-primary-pale`) removido; ícone agora exibido inline ao lado do heading. Hover glow roxo (`boxShadow rgba(155,63,200,...)`) removido; hover agora apenas `translateY(-4px)`.
+- **ProductCard** — hover glow roxo removido; transição de spring com bounce substituída por `ease-out` linear.
+- **Header (Logo)** — `linearGradient` SVG na letra "S" substituído por `fill="currentColor"` com `text-primary`.
+- **CartDrawer / Header drawer** — transição `type: 'spring'` substituída por `duration: 0.28s ease-out-quint ([0.22, 1, 0.36, 1])`.
+- **GallerySection** — transição de spring no lightbox substituída por `ease-out-quint`; placeholders de fundo gradiente substituídos por `bg-primary-pale` sólido.
+- **BookingForm** — card "como funciona" com gradiente substituído por `bg-primary-dark`; `stroke="#9B3FC8"` hardcoded substituído por `stroke="currentColor"`.
+- **Contato page** — container de ícone em quadrado arredondado removido dos cards de contato; hover glow roxo removido; cores SVG hardcoded substituídas por `currentColor`.
+- **ProductDetails** — placeholder de imagem com gradiente substituído por `bg-primary-pale`.
+- **Loading skeletons** — todos os gradientes nos esqueletos de carregamento (home, agendamento, contato, loja) substituídos por superfícies sólidas.
+- **Animação `safPop`** — renomeada para `safFadeIn`; escala inicial de `0.6` alterada para `0.88` para eliminar o efeito pop abrupto; duração reduzida para `0.2s ease-out`.
