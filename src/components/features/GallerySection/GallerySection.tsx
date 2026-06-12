@@ -92,7 +92,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
                     </div>
                   </div>
                 ) : (
-                  <div className="h-[230px] bg-gradient-to-br from-primary-pale to-primary-light/50 flex items-center justify-center">
+                  <div className="h-[230px] bg-primary-pale dark:bg-dark-elevated flex items-center justify-center">
                     <span className="text-primary text-[11px] uppercase tracking-[1.5px] opacity-70">{g.category}</span>
                   </div>
                 )}
@@ -106,7 +106,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
       {images.length === 0 && (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3.5">
           {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className="h-[230px] rounded-[16px] bg-gradient-to-br from-primary-pale to-primary-light/50 flex items-center justify-center">
+            <div key={i} className="h-[230px] rounded-[16px] bg-primary-pale dark:bg-dark-elevated flex items-center justify-center">
               <span className="text-4xl opacity-30">💅</span>
             </div>
           ))}
@@ -141,7 +141,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 260 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               onClick={e => e.stopPropagation()}
               className="w-[min(560px,86vw)]"
             >
@@ -152,7 +152,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
                     <Image src={url} alt={filtered[lightboxIdx].alt} fill className="object-cover" sizes="560px" />
                   </div>
                 ) : (
-                  <div className="rounded-[18px] overflow-hidden h-[400px] bg-gradient-to-br from-primary-pale to-primary-light/50" />
+                  <div className="rounded-[18px] overflow-hidden h-[400px] bg-primary-pale dark:bg-dark-elevated" />
                 );
               })()}
               <div className="text-center text-white mt-3.5">

@@ -125,7 +125,7 @@ export function BookingForm({ services }: BookingFormProps) {
 
       {/* Side info */}
       <div className="flex flex-col gap-4">
-        <div className="rounded-[24px] p-7 text-white" style={{ background: 'linear-gradient(135deg, #9B3FC8, #E879A0)' }}>
+        <div className="rounded-[24px] p-7 text-white bg-primary-dark">
           <div className="font-script text-[30px]">como funciona</div>
           <ol className="mt-3 pl-5 leading-[1.9] text-[15px] opacity-95 list-decimal">
             <li>Preencha o formulário ao lado</li>
@@ -137,7 +137,7 @@ export function BookingForm({ services }: BookingFormProps) {
 
         <div className="bg-white dark:bg-dark-elevated rounded-[24px] p-7 border border-primary/10 dark:border-dark-text/10 shadow-card">
           <h3 className="font-display text-[20px] text-brand-text dark:text-dark-text font-bold mb-4 flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9B3FC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
             Horário de atendimento
           </h3>
           {HOURS.map(([day, hours]) => (

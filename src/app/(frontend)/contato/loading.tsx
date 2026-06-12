@@ -2,10 +2,7 @@ export default function ContatoLoading() {
   return (
     <>
       {/* PageHeader skeleton */}
-      <div
-        className="px-6 py-[clamp(40px,6vw,64px)] text-center"
-        style={{ background: 'linear-gradient(160deg, var(--color-primary-pale), var(--color-brand-offwhite))' }}
-      >
+      <div className="px-6 py-[clamp(40px,6vw,64px)] text-center bg-brand-surface dark:bg-dark-surface">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-3 animate-pulse">
           <div className="h-7 w-32 rounded-full bg-primary/20" />
           <div className="h-10 w-36 rounded-xl bg-primary/15" />

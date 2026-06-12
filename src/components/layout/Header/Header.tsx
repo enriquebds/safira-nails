@@ -21,15 +21,8 @@ const NAV = [
 function Logo({ light }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" className="w-10 h-10">
-        <defs>
-          <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%"   stopColor={light ? '#fff' : '#7B2D9E'} />
-            <stop offset="50%"  stopColor={light ? 'rgba(255,255,255,0.85)' : '#9B3FC8'} />
-            <stop offset="100%" stopColor={light ? 'rgba(255,255,255,0.7)' : '#D94F80'} />
-          </linearGradient>
-        </defs>
-        <text x="50" y="78" textAnchor="middle" fontFamily="Georgia, 'Times New Roman', serif" fontSize="88" fontWeight="bold" fill="url(#logo-g)">S</text>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" className={`w-10 h-10 ${light ? 'text-white' : 'text-primary'}`}>
+        <text x="50" y="78" textAnchor="middle" fontFamily="Georgia, 'Times New Roman', serif" fontSize="88" fontWeight="bold" fill="currentColor">S</text>
       </svg>
       <div className="leading-none">
         <span className={`font-display font-bold text-[21px] ${light ? 'text-white' : 'text-brand-text dark:text-dark-text'}`}>
@@ -106,7 +99,7 @@ export function Header() {
                 <path d="M2 3h3l2.2 12.3a1.5 1.5 0 0 0 1.5 1.2h8.5a1.5 1.5 0 0 0 1.5-1.2L21 7H6" />
               </svg>
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 min-w-[19px] h-[19px] px-1 rounded-full bg-accent text-white text-[11px] font-bold flex items-center justify-center animate-[safPop_.25s_ease]">
+                <span className="absolute -top-1 -right-1 min-w-[19px] h-[19px] px-1 rounded-full bg-accent text-white text-[11px] font-bold flex items-center justify-center animate-[safFadeIn_.2s_ease-out]">
                   {totalItems}
                 </span>
               )}
@@ -141,7 +134,7 @@ export function Header() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               onClick={e => e.stopPropagation()}
               className="absolute top-0 right-0 bottom-0 w-[min(80vw,320px)] bg-brand-offwhite dark:bg-dark-bg p-6 flex flex-col gap-1.5"
             >

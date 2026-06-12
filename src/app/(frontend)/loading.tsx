@@ -2,7 +2,7 @@ export default function HomeLoading() {
   return (
     <>
       {/* Hero skeleton */}
-      <section className="relative min-h-[min(640px,90vh)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-pale to-brand-offwhite dark:from-dark-surface dark:to-dark-bg animate-pulse">
+      <section className="relative min-h-[min(640px,90vh)] flex items-center justify-center overflow-hidden bg-brand-surface dark:bg-dark-surface animate-pulse">
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col items-center gap-5 text-center">
           <div className="h-8 w-48 rounded-full bg-primary/20" />
           <div className="h-14 w-[min(520px,80vw)] rounded-2xl bg-primary/15" />

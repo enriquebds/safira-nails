@@ -34,9 +34,9 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <motion.article
-      whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(155,63,200,0.25)' }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="bg-white dark:bg-dark-surface rounded-[18px] overflow-hidden border border-primary/10 dark:border-dark-text/10 flex flex-col shadow-card dark:shadow-card-dark"
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.18, ease: 'easeOut' }}
+      className="bg-white dark:bg-dark-surface rounded-[16px] overflow-hidden border border-primary/10 dark:border-dark-text/10 flex flex-col shadow-card dark:shadow-card-dark"
     >
       <Link href={`/loja?product_id=${product.id}`} className="block relative aspect-square overflow-hidden">
         {imageUrl ? (
@@ -49,7 +49,7 @@ export function ProductCard({ product }: ProductCardProps) {
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-primary-pale to-primary-light/50 flex items-center justify-center">
+          <div className="w-full h-full bg-primary-pale dark:bg-dark-elevated flex items-center justify-center">
             <span className="text-4xl opacity-50">💎</span>
           </div>
         )}

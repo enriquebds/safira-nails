@@ -84,7 +84,7 @@ export function ProductDetails({ product, related }: { product: Product; related
               {allImages[activeImg] ? (
                 <Image src={allImages[activeImg]!} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-primary-pale to-primary-light/50 flex items-center justify-center"><span className="text-8xl opacity-30">💎</span></div>
+                <div className="w-full h-full bg-primary-pale dark:bg-dark-elevated flex items-center justify-center"><span className="text-8xl opacity-30">💎</span></div>
               )}
             </div>
             {allImages.length > 1 && (
@@ -175,10 +175,10 @@ export function ProductDetails({ product, related }: { product: Product; related
                 ['Pedido finalizado pelo WhatsApp', 'whatsapp'],
               ].map(([text, icon]) => (
                 <div key={text} className="flex items-center gap-2.5 text-brand-muted dark:text-dark-muted text-[14px]">
-                  <span className="w-8 h-8 rounded-full bg-primary-pale dark:bg-dark-surface flex items-center justify-center flex-shrink-0">
-                    {icon === 'check' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B3FC8" strokeWidth="1.6" strokeLinecap="round"><path d="M4 12l5 5L20 6" /></svg>}
-                    {icon === 'pin' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B3FC8" strokeWidth="1.6" strokeLinecap="round"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>}
-                    {icon === 'whatsapp' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B3FC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3L3 21z" /></svg>}
+                  <span className="w-8 h-8 rounded-full bg-primary-pale dark:bg-dark-surface flex items-center justify-center flex-shrink-0 text-primary">
+                    {icon === 'check' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 12l5 5L20 6" /></svg>}
+                    {icon === 'pin' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>}
+                    {icon === 'whatsapp' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3L3 21z" /></svg>}
                   </span>
                   {text}
                 </div>

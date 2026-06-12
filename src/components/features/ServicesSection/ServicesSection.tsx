@@ -32,17 +32,19 @@ export function ServicesSection({ services }: { services: Service[] }) {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(155,63,200,0.18)' }}
-            className="bg-white dark:bg-dark-surface rounded-[20px] p-6 border border-primary/10 dark:border-dark-text/10 shadow-card dark:shadow-card-dark"
+            whileHover={{ y: -4 }}
+            className="bg-white dark:bg-dark-surface rounded-[16px] p-6 border border-primary/10 dark:border-dark-text/10 shadow-card dark:shadow-card-dark"
           >
-            <div className="w-12 h-12 rounded-[13px] bg-primary-pale dark:bg-dark-elevated flex items-center justify-center mb-4 text-[26px] text-primary">
-              {s.icon ?? (
-                <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
-                  <path d="M24 4c1.5 11 5 14.5 16 16-11 1.5-14.5 5-16 16-1.5-11-5-14.5-16-16 11-1.5 14.5-5 16-16z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
-                </svg>
-              )}
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-primary text-[22px] leading-none">
+                {s.icon ?? (
+                  <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
+                    <path d="M24 4c1.5 11 5 14.5 16 16-11 1.5-14.5 5-16 16-1.5-11-5-14.5-16-16 11-1.5 14.5-5 16-16z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </span>
+              <h3 className="font-display text-[21px] text-brand-text dark:text-dark-text font-bold leading-tight">{s.title}</h3>
             </div>
-            <h3 className="font-display text-[22px] text-brand-text dark:text-dark-text font-bold mb-1.5">{s.title}</h3>
             <p className="text-[14px] text-brand-muted dark:text-dark-muted leading-[1.55] mb-4">{s.description}</p>
             {s.items && s.items.length > 0 && (
               <div className="border-t border-primary/10 dark:border-dark-text/10 pt-3.5 flex flex-col gap-2">

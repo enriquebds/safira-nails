@@ -6,7 +6,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ over, title, sub }: PageHeaderProps) {
   return (
-    <div className="px-6 py-[clamp(40px,6vw,64px)] text-center" style={{ background: 'linear-gradient(160deg, var(--color-primary-pale), var(--color-brand-offwhite))' }}>
+    <div className="px-6 py-[clamp(40px,6vw,64px)] text-center bg-brand-surface dark:bg-dark-surface">
       <div className="max-w-[1280px] mx-auto">
         {over && (
           <div className="font-script text-[30px] text-primary leading-none">{over}</div>

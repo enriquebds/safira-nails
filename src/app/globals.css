@@ -1,44 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 /* Enable class-based dark mode (.dark on <html>) */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #9B3FC8;
-  --color-primary-light: #C47DE8;
-  --color-primary-pale: #E8C4F5;
-  --color-primary-dark: #5B1A8A;
+  --color-primary:       oklch(49% 0.22 292);
+  --color-primary-light: oklch(66% 0.19 292);
+  --color-primary-pale:  oklch(85% 0.09 292);
+  --color-primary-dark:  oklch(34% 0.22 288);
 
-  --color-accent: #E879A0;
-  --color-accent-deep: #C2185B;
+  --color-accent:        oklch(67% 0.22 354);
+  --color-accent-deep:   oklch(45% 0.25 354);
 
-  --color-brand-offwhite: #FAF5FF;
-  --color-brand-text: #2D0D4E;
-  --color-brand-muted: #6B3F8A;
-  --color-brand-surface: #F3E8FF;
+  --color-brand-offwhite: oklch(97% 0.015 292);
+  --color-brand-text:     oklch(20% 0.12 290);
+  --color-brand-muted:    oklch(40% 0.16 292);
+  --color-brand-surface:  oklch(93% 0.04 292);
 
-  --color-dark-bg: #12021E;
-  --color-dark-surface: #1E0A30;
-  --color-dark-elevated: #2A1040;
-  --color-dark-text: #F0E0FF;
-  --color-dark-muted: #C4A0E0;
+  --color-dark-bg:       oklch(10% 0.08 290);
+  --color-dark-surface:  oklch(14% 0.09 291);
+  --color-dark-elevated: oklch(18% 0.11 291);
+  --color-dark-text:     oklch(91% 0.06 291);
+  --color-dark-muted:    oklch(71% 0.11 292);
 
-  --font-display: "Playfair Display", serif;
+  --font-display: "Bodoni Moda", serif;
   --font-script: "Great Vibes", cursive;
-  --font-body: "DM Sans", sans-serif;
+  --font-body: "Lato", sans-serif;
 
-  --radius-card: 18px;
-  --radius-card-lg: 24px;
+  --radius-card: 16px;
+  --radius-card-lg: 22px;
 
-  --shadow-card: 0 8px 30px rgba(91,26,138,0.10);
-  --shadow-card-dark: 0 8px 30px rgba(0,0,0,0.45);
+  --shadow-card: 0 4px 20px rgba(91, 26, 138, 0.08);
+  --shadow-card-dark: 0 4px 20px rgba(0, 0, 0, 0.40);
 
-  --header-bg: rgba(255,255,255,0.78);
+  --header-bg: rgba(250, 245, 255, 0.84);
 }
 
 html {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Lato", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -48,26 +48,41 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Remap palette tokens for dark mode — mirrors PAL.dark from the design */
+/* Remap palette tokens for dark mode */
 html.dark {
-  --header-bg: rgba(18,2,30,0.78);
+  --header-bg: rgba(18, 2, 30, 0.84);
 
-  --color-primary: #C47DE8;
-  --color-primary-dark: #9B3FC8;
-  --color-primary-pale: #2A1040;
+  --color-primary:      oklch(66% 0.19 292);
+  --color-primary-dark: oklch(49% 0.22 292);
+  --color-primary-pale: oklch(18% 0.11 291);
 
-  --color-brand-offwhite: #12021E;
-  --color-brand-surface: #1E0A30;
-  --color-brand-text: #F0E0FF;
-  --color-brand-muted: #C4A0E0;
+  --color-brand-offwhite: oklch(10% 0.08 290);
+  --color-brand-surface:  oklch(14% 0.09 291);
+  --color-brand-text:     oklch(91% 0.06 291);
+  --color-brand-muted:    oklch(71% 0.11 292);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(155, 63, 200, 0.3) transparent;
+  scrollbar-color: oklch(49% 0.22 292 / 0.25) transparent;
 }
 
-@keyframes safPop {
-  0% { transform: scale(0.6); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+/* Optical sizing and kerning for the display serif */
+.font-display {
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Large display text gets tighter tracking */
+h1.font-display {
+  letter-spacing: -0.02em;
+}
+h2.font-display {
+  letter-spacing: -0.015em;
+}
+
+@keyframes safFadeIn {
+  0%   { transform: scale(0.88); opacity: 0; }
+  100% { transform: scale(1);    opacity: 1; }
 }

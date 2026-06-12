@@ -28,7 +28,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-br from-primary-dark to-primary text-white px-6 pt-16 pb-8">
+    <footer className="text-white px-6 pt-16 pb-8" style={{ background: 'oklch(18% 0.12 290)' }}>
       <div className="max-w-[1280px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-10">
         {/* Brand */}
         <div className="max-w-xs">
